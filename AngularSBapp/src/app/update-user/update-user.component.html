@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .w-25 {
+            width: 25% !important;
+        }
+        .form-control {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .mt-2 {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-success[disabled] {
+            background-color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div [hidden]="ajout">
+            <label>ID User </label>
+            <input type="text" [(ngModel)]="user.idUser" name="idUser" class="form-control w-25">
+        </div>
+        <div>
+            <label>User Name</label>
+            <input type="text" [(ngModel)]="user.nomUser" name="nomUser" class="form-control" placeholder="Enter User Name...">
+        </div>
+        <div>
+            <label>User Email</label>
+            <input type="text" [(ngModel)]="user.emailUser" name="emailUser" class="form-control" placeholder="Enter User E-mail...">
+        </div>
+        <div class="mt-2">
+            <button type="submit" [disabled]="!user.nomUser" class="btn btn-success" (click)="saveUser()">{{ajout ?'Ajouter' : 'Modifier'}}</button>
+        </div>
+    </form>
+</body>
+</html>

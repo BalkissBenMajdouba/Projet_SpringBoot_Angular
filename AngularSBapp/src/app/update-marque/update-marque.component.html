@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .w-25 {
+            width: 25% !important;
+        }
+        .form-control {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .mt-2 {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-success[disabled] {
+            background-color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div [hidden]="ajout">
+            <label>ID Brand </label>
+            <input type="text" [(ngModel)]="marque.idMarque" name="idMarque" class="form-control w-25">
+        </div>
+        <div>
+            <label>Brand Name</label>
+            <input type="text" [(ngModel)]="marque.nomMarque" name="nomMarque" class="form-control" placeholder="Enter Brand Name...">
+        </div>
+        <div>
+            <label>Brand Location</label>
+            <input type="text" [(ngModel)]="marque.paysMarque" name="paysMarque" class="form-control" placeholder="Enter Brand Location...">
+        </div>
+        <div>
+            <label>Brand Launch Year</label>
+            <input type="text" [(ngModel)]="marque.anneeCMarque" name="anneeCMarque" class="form-control" placeholder="Enter Brand Launch Year...">
+        </div>
+        <div class="mt-2">
+            <button type="submit" [disabled]="!marque.nomMarque" class="btn btn-success" (click)="saveMarque()">{{ajout ? 'Ajouter' : 'Modifier'}}</button>
+        </div>
+    </form>
+</body>
+</html>

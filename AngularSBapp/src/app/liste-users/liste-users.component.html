@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+                <app-update-user [user]="updatedUser"
+                (userUpdated)= "userUpdated($event)" [ajout]="ajout"></app-update-user> 
+                </div>
+            <table class="table table-striped">
+                <thead> 
+                    <tr>
+                        <th>Id</th>
+                        <th>User Name</th>
+                        <th>User Email</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let user of users">
+                    <tr>
+                        <td>{{user.idUser}}</td>
+                        <td>{{user.nomUser}}</td>
+                        <td>{{user.emailUser}}</td>
+                        <td><a class="btn btn-success" (click)="updateUser(user)">Update</a></td>
+                 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

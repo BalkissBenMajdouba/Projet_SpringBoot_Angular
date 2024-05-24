@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <h4 class="mb-0">PC List</h4>
+            <table class="table table-striped">
+                <thead> 
+                    <tr>
+                        <th class="bg-info text-white">Id</th> 
+                        <th class="bg-info text-white">Name</th>
+                        <th class="bg-info text-white">Marque</th>
+                        <th class="bg-info text-white">Hard drive</th>
+                        <th class="bg-info text-white">RAM</th>
+                        <th class="bg-info text-white">CPU</th>
+                        <th class="bg-info text-white">Price</th>
+                        <th class="bg-info text-white">User</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let pc of pcs">
+                    <tr>
+                        <td>{{ pc.idPc }}</td>
+                        <td>{{ pc.nomPc }}</td>
+                        <td>{{ pc.marque?.nomMarque }}</td>
+                        <td>{{ pc.diqueDurPc }}</td>
+                        <td>{{ pc.memoirePc }}</td>
+                        <td>{{ pc.processeurPc }}</td>
+                        <td>{{ pc.prixPc }}</td>
+                        <td>{{ pc.user?.nomUser }}</td>
+                 <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerPc(pc)">Delete</a></td>
+                 <td><a  *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updatePc',pc.idPc]">Update</a></td>
+                    </tr>
+                </tbody>
+            </table>
+             </div>
+    </div>
+</div> 
